@@ -282,20 +282,27 @@ footer {
 }
 
 /* Services page visuals */
+.service-hero {
+  align-items: stretch;
+}
+
 .hero-visual {
   position: relative;
-  min-height: 280px;
-  background: linear-gradient(145deg, rgba(110, 231, 255, 0.08), rgba(124, 93, 255, 0.08));
+  min-height: 340px;
+  background: linear-gradient(145deg, rgba(110, 231, 255, 0.08), rgba(124, 93, 255, 0.12));
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--glow);
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
 }
 
 .hero-visual .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(45px);
+  filter: blur(35px);
   opacity: 0.5;
   animation: float 8s ease-in-out infinite;
 }
@@ -304,46 +311,47 @@ footer {
   width: 180px;
   height: 180px;
   background: var(--accent);
-  top: -40px;
-  right: 10%;
+  top: -30px;
+  right: 8%;
 }
 
 .hero-visual .orb.two {
   width: 220px;
   height: 220px;
   background: var(--accent-2);
-  bottom: -60px;
-  left: 5%;
+  bottom: -70px;
+  left: 6%;
   animation-delay: 1.2s;
 }
 
 .hero-visual .orb.three {
-  width: 140px;
-  height: 140px;
-  background: rgba(255, 255, 255, 0.15);
-  top: 20%;
-  left: 45%;
+  width: 160px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.18);
+  top: 18%;
+  left: 42%;
   animation-delay: 2s;
 }
 
 .hero-visual .labels {
   position: relative;
-  padding: 22px;
   display: grid;
   gap: 10px;
+  z-index: 1;
+  align-self: flex-end;
 }
 
 .label-card {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(6, 10, 18, 0.65);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 10px 12px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   width: fit-content;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .label-card .dot {
