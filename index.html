@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redesign3D — 3D Printed Business Cards</title>
+  <title>Redesign3D - 3D Printed Business Cards</title>
   <style>
     :root {
       --bg: radial-gradient(circle at 20% 20%, #101622, #0a0f19 45%, #070b13 80%);
@@ -27,6 +27,8 @@
       flex-direction: column;
     }
 
+    a { color: inherit; text-decoration: none; }
+
     header {
       position: sticky;
       top: 0;
@@ -43,11 +45,12 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 20px;
-      gap: 16px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 10px;
       font-weight: 700;
@@ -63,6 +66,22 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: var(--glow);
     }
+
+    .links {
+      display: inline-flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      padding: 6px 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+
+    .links a:hover { color: var(--text); border-color: var(--accent); }
 
     .pill {
       border: 1px solid var(--border);
@@ -198,7 +217,8 @@
     }
 
     @media (max-width: 700px) {
-      .nav { padding: 14px 16px; }
+      .nav { padding: 14px 16px; justify-content: center; }
+      .links { width: 100%; justify-content: center; }
       .hero h1 { font-size: 32px; }
       .cta-row { width: 100%; }
       .btn { width: 100%; text-align: center; }
@@ -208,30 +228,36 @@
 <body>
   <header>
     <div class="nav">
-      <div class="brand"><span class="dot"></span> Redesign3D</div>
-      <div class="pill">3D printed business cards, delivered globally</div>
+      <a class="brand" href="index.html"><span class="dot"></span> Redesign3D</a>
+      <nav class="links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="resources.html">Resources</a>
+        <a href="shop.html">Shop</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <div class="pill">Launch-ready</div>
+        <div class="pill">Launch ready</div>
         <h1>Stand-out 3D printed business cards that people keep.</h1>
         <p>We design and print tactile, durable cards with raised logos, QR codes, and color accents. Perfect for events, VIP outreach, and unforgettable first impressions.</p>
         <div class="cta-row">
           <button class="btn">Start a Card Project</button>
-          <button class="btn secondary">View pricing & samples</button>
+          <button class="btn secondary">View pricing and samples</button>
         </div>
       </div>
       <div class="hero-card">
         <h3 style="margin-top:0;">What you get</h3>
         <p style="color:var(--muted); max-width: 360px;">Custom CAD-grade cards, multicolor filament options, embedded QR, matte or satin finishes, and fast shipping.</p>
         <div class="specs">
-          <div class="spec">Raised logos & text up to 1.5mm for tactile feel</div>
+          <div class="spec">Raised logos and text up to 1.5mm for tactile feel</div>
           <div class="spec">Dual-tone or tri-tone filament swaps per card</div>
-          <div class="spec">Integrated QR/NFC options</div>
-          <div class="spec">Proof in 48h, print & ship in ~7 days</div>
+          <div class="spec">Integrated QR and optional NFC</div>
+          <div class="spec">Proof in 48h, print and ship in about 7 days</div>
         </div>
       </div>
     </section>
@@ -240,15 +266,15 @@
       <div class="pill" style="margin-bottom:10px;">How it works</div>
       <div class="grid">
         <div class="card">
-          <h3>01 — Share your vision</h3>
-          <p>Upload a logo and choose finishes. We’ll send layout options optimized for 3D printing tolerances.</p>
+          <h3>01 - Share your vision</h3>
+          <p>Upload a logo and choose finishes. We will send layout options optimized for 3D printing tolerances.</p>
         </div>
         <div class="card">
-          <h3>02 — Approve the proof</h3>
-          <p>Receive a 3D-rendered proof within 48 hours. Request tweaks until it’s perfect.</p>
+          <h3>02 - Approve the proof</h3>
+          <p>Receive a 3D-rendered proof within 48 hours. Request tweaks until it is perfect.</p>
         </div>
         <div class="card">
-          <h3>03 — Print & deliver</h3>
+          <h3>03 - Print and deliver</h3>
           <p>We run your batch on calibrated printers, inspect each card, and ship worldwide.</p>
         </div>
       </div>
@@ -270,7 +296,7 @@
           <p>Color swaps mid-print to spotlight your logo and CTA.</p>
         </div>
         <div class="card">
-          <h3>NFC-ready</h3>
+          <h3>NFC ready</h3>
           <p>Option to embed NFC tags for tap-to-connect intros.</p>
         </div>
       </div>
@@ -280,7 +306,7 @@
       <div class="pill" style="margin-bottom:10px;">Ready to start?</div>
       <div class="card">
         <h3>Tell us about your card</h3>
-        <p style="max-width:640px;">Share your logo, colors, and what you want people to feel when they hold your card. We’ll craft a proof and get you printing.</p>
+        <p style="max-width:640px;">Share your logo, colors, and what you want people to feel when they hold your card. We will craft a proof and get you printing.</p>
         <div class="cta-row">
           <button class="btn">Start a Card Project</button>
           <button class="btn secondary">Email the team</button>
@@ -290,7 +316,7 @@
   </main>
 
   <footer>
-    Redesign3D · 3D printed business cards · Contact: hello@redesign3d.shop
+    Redesign3D - 3D printed business cards - Contact: hello@redesign3d.shop
   </footer>
 </body>
 </html>

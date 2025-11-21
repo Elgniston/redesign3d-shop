@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Redesign3D</title>
+  <style>
+    :root { --bg: radial-gradient(circle at 20% 20%, #101622, #0a0f19 45%, #070b13 80%); --panel: rgba(255,255,255,0.04); --accent: #6ee7ff; --accent-2: #7c5dff; --text: #e8ecf5; --muted: #9fb3d1; --border: rgba(255,255,255,0.08); --glow: 0 0 25px rgba(110,231,255,0.35); font-family: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,11,18,0.7); border-bottom: 1px solid var(--border); }
+    .nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; gap: 20px; flex-wrap: wrap; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 15px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: var(--glow); }
+    .links { display: inline-flex; gap: 18px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+    .links a { padding: 6px 4px; border-bottom: 1px solid transparent; transition: color 160ms ease, border-color 160ms ease; }
+    .links a:hover { color: var(--text); border-color: var(--accent); }
+    main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 24px 20px 80px; display: grid; gap: 24px; }
+    .pill { border: 1px solid var(--border); padding: 10px 14px; border-radius: 999px; color: var(--muted); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.02); }
+    h1 { font-size: clamp(30px, 5vw, 44px); margin: 8px 0 4px; }
+    p { color: var(--muted); line-height: 1.6; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 12px 35px rgba(0,0,0,0.35); }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.5; }
+    footer { border-top: 1px solid var(--border); padding: 20px; text-align: center; color: var(--muted); font-size: 14px; background: rgba(8,11,18,0.7); backdrop-filter: blur(10px); }
+    @media (max-width: 700px) { .nav { padding: 14px 16px; justify-content: center; } .links { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="dot"></span> Redesign3D</a>
+      <nav class="links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="resources.html">Resources</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="pill">About the studio</div>
+    <h1>Tactile brand moments, engineered in 3D.</h1>
+    <p>Redesign3D is a small team of designers and print engineers focused on making business cards that people do not want to throw away.</p>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Design-first process</h3>
+        <p>We translate brand systems into 3D objects, calibrating emboss depth, kerning, and spacing for physical impact.</p>
+      </div>
+      <div class="card">
+        <h3>Print lab standards</h3>
+        <p>Dialed-in printers, material testing, and repeatable QC so every batch feels consistent.</p>
+      </div>
+      <div class="card">
+        <h3>Human collaboration</h3>
+        <p>You get direct access to the designer and technician handling your cards. Fast replies, clear proofs.</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Based</h3>
+        <p>Operating with distributed production partners for regional fulfillment.</p>
+      </div>
+      <div class="card">
+        <h3>Turnaround</h3>
+        <p>Proofs in 48 hours. Typical production 5-7 days after approval.</p>
+      </div>
+      <div class="card">
+        <h3>Values</h3>
+        <p>Precision, reliability, and making first impressions memorable.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Redesign3D - 3D printed business cards - Contact: hello@redesign3d.shop
+  </footer>
+</body>
+</html>

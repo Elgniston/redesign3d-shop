@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - Redesign3D</title>
+  <style>
+    :root { --bg: radial-gradient(circle at 20% 20%, #101622, #0a0f19 45%, #070b13 80%); --panel: rgba(255,255,255,0.04); --accent: #6ee7ff; --accent-2: #7c5dff; --text: #e8ecf5; --muted: #9fb3d1; --border: rgba(255,255,255,0.08); --glow: 0 0 25px rgba(110,231,255,0.35); font-family: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,11,18,0.7); border-bottom: 1px solid var(--border); }
+    .nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; gap: 20px; flex-wrap: wrap; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 15px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: var(--glow); }
+    .links { display: inline-flex; gap: 18px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+    .links a { padding: 6px 4px; border-bottom: 1px solid transparent; transition: color 160ms ease, border-color 160ms ease; }
+    .links a:hover { color: var(--text); border-color: var(--accent); }
+    main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 24px 20px 80px; display: grid; gap: 24px; }
+    .pill { border: 1px solid var(--border); padding: 10px 14px; border-radius: 999px; color: var(--muted); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.02); }
+    h1 { font-size: clamp(30px, 5vw, 44px); margin: 8px 0 6px; }
+    p { color: var(--muted); line-height: 1.6; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 12px 35px rgba(0,0,0,0.35); }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.5; }
+    footer { border-top: 1px solid var(--border); padding: 20px; text-align: center; color: var(--muted); font-size: 14px; background: rgba(8,11,18,0.7); backdrop-filter: blur(10px); }
+    @media (max-width: 700px) { .nav { padding: 14px 16px; justify-content: center; } .links { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html"><span class="dot"></span> Redesign3D</a>
+      <nav class="links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="resources.html">Resources</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="pill">Resources</div>
+    <h1>Guides for getting your 3D business cards right.</h1>
+    <p>Save time with our quick references. Use these when preparing assets or explaining the look you want.</p>
+
+    <section class="grid">
+      <div class="card">
+        <h3>File prep checklist</h3>
+        <p>Use vector logos (SVG preferred), outline text, and include brand colors in hex. Minimum QR size: 18mm square.</p>
+      </div>
+      <div class="card">
+        <h3>Finish picker</h3>
+        <p>Matte for muted, satin for subtle sheen. Add soft chamfers for pocket-friendliness.</p>
+      </div>
+      <div class="card">
+        <h3>Color strategy</h3>
+        <p>Limit to two or three tones to keep detail crisp. High contrast boosts scan reliability for QR codes.</p>
+      </div>
+      <div class="card">
+        <h3>Emboss depth tips</h3>
+        <p>1.0-1.5mm for logos, 0.6-0.8mm for text. Shallower emboss keeps thin strokes clean.</p>
+      </div>
+      <div class="card">
+        <h3>Proofing expectations</h3>
+        <p>We share a render, then a photographed sample under neutral light so you know exactly what you will get.</p>
+      </div>
+      <div class="card">
+        <h3>Care instructions</h3>
+        <p>Store flat, avoid direct heat, and wipe with a microfiber cloth to refresh the finish.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Redesign3D - 3D printed business cards - Contact: hello@redesign3d.shop
+  </footer>
+</body>
+</html>
