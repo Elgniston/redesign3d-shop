@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redesign3D — 3D Printed Business Cards</title>
+  <style>
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #101622, #0a0f19 45%, #070b13 80%);
+      --panel: rgba(255,255,255,0.04);
+      --accent: #6ee7ff;
+      --accent-2: #7c5dff;
+      --text: #e8ecf5;
+      --muted: #9fb3d1;
+      --border: rgba(255,255,255,0.08);
+      --glow: 0 0 25px rgba(110,231,255,0.35);
+      font-family: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(8,11,18,0.7);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+
+    .brand .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--glow);
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.05;
+      margin: 12px 0 14px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .btn {
+      border: none;
+      padding: 14px 18px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #041019;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--glow);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.35), var(--glow); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    .card h3 { margin: 0; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.5; }
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .spec {
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(110,231,255,0.08), rgba(124,93,255,0.08));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 220px;
+      overflow: hidden;
+      box-shadow: var(--glow);
+    }
+
+    .hero-card::after, .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.35;
+    }
+    .hero-card::after { background: var(--accent-2); right: -40px; top: -60px; }
+    .hero-card::before { background: var(--accent); left: -60px; bottom: -80px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(8,11,18,0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 700px) {
+      .nav { padding: 14px 16px; }
+      .hero h1 { font-size: 32px; }
+      .cta-row { width: 100%; }
+      .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot"></span> Redesign3D</div>
+      <div class="pill">3D printed business cards, delivered globally</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="pill">Launch-ready</div>
+        <h1>Stand-out 3D printed business cards that people keep.</h1>
+        <p>We design and print tactile, durable cards with raised logos, QR codes, and color accents. Perfect for events, VIP outreach, and unforgettable first impressions.</p>
+        <div class="cta-row">
+          <button class="btn">Start a Card Project</button>
+          <button class="btn secondary">View pricing & samples</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3 style="margin-top:0;">What you get</h3>
+        <p style="color:var(--muted); max-width: 360px;">Custom CAD-grade cards, multicolor filament options, embedded QR, matte or satin finishes, and fast shipping.</p>
+        <div class="specs">
+          <div class="spec">Raised logos & text up to 1.5mm for tactile feel</div>
+          <div class="spec">Dual-tone or tri-tone filament swaps per card</div>
+          <div class="spec">Integrated QR/NFC options</div>
+          <div class="spec">Proof in 48h, print & ship in ~7 days</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="pill" style="margin-bottom:10px;">How it works</div>
+      <div class="grid">
+        <div class="card">
+          <h3>01 — Share your vision</h3>
+          <p>Upload a logo and choose finishes. We’ll send layout options optimized for 3D printing tolerances.</p>
+        </div>
+        <div class="card">
+          <h3>02 — Approve the proof</h3>
+          <p>Receive a 3D-rendered proof within 48 hours. Request tweaks until it’s perfect.</p>
+        </div>
+        <div class="card">
+          <h3>03 — Print & deliver</h3>
+          <p>We run your batch on calibrated printers, inspect each card, and ship worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="pill" style="margin-bottom:10px;">Popular specs</div>
+      <div class="grid">
+        <div class="card">
+          <h3>Durable PLA+ / PETG</h3>
+          <p>Sturdy cards that resist bending and keep edges crisp.</p>
+        </div>
+        <div class="card">
+          <h3>Raised QR codes</h3>
+          <p>Scannable, resilient codes that survive wear and tear.</p>
+        </div>
+        <div class="card">
+          <h3>Multi-tone layers</h3>
+          <p>Color swaps mid-print to spotlight your logo and CTA.</p>
+        </div>
+        <div class="card">
+          <h3>NFC-ready</h3>
+          <p>Option to embed NFC tags for tap-to-connect intros.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="pill" style="margin-bottom:10px;">Ready to start?</div>
+      <div class="card">
+        <h3>Tell us about your card</h3>
+        <p style="max-width:640px;">Share your logo, colors, and what you want people to feel when they hold your card. We’ll craft a proof and get you printing.</p>
+        <div class="cta-row">
+          <button class="btn">Start a Card Project</button>
+          <button class="btn secondary">Email the team</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Redesign3D · 3D printed business cards · Contact: hello@redesign3d.shop
+  </footer>
+</body>
+</html>
