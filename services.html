@@ -4,39 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services - Redesign3D</title>
-  <style>
-    :root {
-      --bg: radial-gradient(circle at 20% 20%, #101622, #0a0f19 45%, #070b13 80%);
-      --panel: rgba(255,255,255,0.04);
-      --accent: #6ee7ff;
-      --accent-2: #7c5dff;
-      --text: #e8ecf5;
-      --muted: #9fb3d1;
-      --border: rgba(255,255,255,0.08);
-      --glow: 0 0 25px rgba(110,231,255,0.35);
-      font-family: "Sora", "Segoe UI", system-ui, -apple-system, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
-    a { color: inherit; text-decoration: none; }
-    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,11,18,0.7); border-bottom: 1px solid var(--border); }
-    .nav { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; gap: 20px; flex-wrap: wrap; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 15px; }
-    .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: var(--glow); }
-    .links { display: inline-flex; gap: 18px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
-    .links a { padding: 6px 4px; border-bottom: 1px solid transparent; transition: color 160ms ease, border-color 160ms ease; }
-    .links a:hover { color: var(--text); border-color: var(--accent); }
-    main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 24px 20px 80px; display: grid; gap: 20px; }
-    .pill { border: 1px solid var(--border); padding: 10px 14px; border-radius: 999px; color: var(--muted); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.02); }
-    .hero h1 { font-size: clamp(30px, 5vw, 44px); margin: 12px 0 10px; }
-    .hero p { color: var(--muted); line-height: 1.6; margin: 0; max-width: 760px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 12px 35px rgba(0,0,0,0.35); }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.5; }
-    footer { border-top: 1px solid var(--border); padding: 20px; text-align: center; color: var(--muted); font-size: 14px; background: rgba(8,11,18,0.7); backdrop-filter: blur(10px); }
-    @media (max-width: 700px) { .nav { padding: 14px 16px; justify-content: center; } .links { width: 100%; justify-content: center; } }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <header>
@@ -98,5 +66,6 @@
   <footer>
     Redesign3D - 3D printed business cards - Contact: hello@redesign3d.shop
   </footer>
+  <script src="assets/main.js"></script>
 </body>
 </html>
