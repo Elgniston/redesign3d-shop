@@ -4,18 +4,21 @@ REDESIGN3D is a modern e-commerce platform for customizing and ordering 3D print
 
 ## Features
 
+- **3D Hero Experience**: Interactive 3D business card on the homepage using React Three Fiber.
 - **Customization Engine**: Live preview of business card designs with real-time updates.
 - **E-commerce**: Integrated with Stripe for secure checkout.
-- **Order Tracking**: Public tracking page for customers to monitor their order status.
+- **Order Tracking**: Public tracking page (`/track`) where users can search by Order ID.
+- **Email Notifications**: Automated order confirmation emails via Resend.
 - **Admin Dashboard**: Manage orders, update statuses, and view customer details.
 - **Responsive Design**: Mobile-first approach using Tailwind CSS and shadcn/ui.
 
 ## Tech Stack
 
-- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS, shadcn/ui
+- **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS, shadcn/ui, React Three Fiber
 - **Backend**: Next.js Server Actions, API Routes
 - **Database**: Supabase (PostgreSQL)
 - **Payments**: Stripe
+- **Email**: Resend
 
 ## Getting Started
 
@@ -24,6 +27,7 @@ REDESIGN3D is a modern e-commerce platform for customizing and ordering 3D print
 - Node.js 18+
 - Supabase Account
 - Stripe Account
+- Resend Account (for emails)
 
 ### Installation
 
@@ -42,11 +46,20 @@ REDESIGN3D is a modern e-commerce platform for customizing and ordering 3D print
    Create a `.env.local` file in the root directory and add the following:
 
    ```env
+   # Supabase
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+   # Stripe
    STRIPE_SECRET_KEY=your_stripe_secret_key
    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
    STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+
+   # Email (Resend)
+   RESEND_API_KEY=your_resend_api_key
+
+   # Admin
    ADMIN_PASSWORD=your_admin_password
    ```
 
@@ -63,14 +76,23 @@ REDESIGN3D is a modern e-commerce platform for customizing and ordering 3D print
 ## Project Structure
 
 - `/app`: Next.js App Router pages and API routes.
-- `/components`: Reusable UI components.
-- `/lib`: Utility functions and client configurations (Supabase, Stripe).
+- `/components`: Reusable UI components (including `hero-3d-card.tsx`).
+- `/lib`: Utility functions and client configurations.
 - `/db`: Database schema and seeds.
 - `/types`: TypeScript type definitions.
 
 ## Admin Access
 
 Navigate to `/admin/login` and enter the password configured in `ADMIN_PASSWORD` (default: `admin123`).
+
+## Deployment
+
+The easiest way to deploy is via **Vercel**:
+
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. Add all the Environment Variables from `.env.local` to the Vercel project settings.
+4. Deploy!
 
 ## License
 
