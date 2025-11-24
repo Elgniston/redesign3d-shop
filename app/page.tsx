@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Printer, Truck } from "lucide-react";
+import { ArrowRight, Check, Palette, Printer, Truck } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Hero3DCard } from "@/components/hero-3d-card";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-background">
+      <section className="relative pt-20 pb-0 md:pt-32 md:pb-10 overflow-hidden bg-background">
         <div className="container relative z-10 flex flex-col items-center text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-6">
             The Future of Networking <br /> is 3D Printed.
@@ -15,16 +17,19 @@ export default function Home() {
             Stand out with premium, customizable 3D printed business cards.
             Durable, unique, and unforgettable.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" asChild className="text-lg px-8 h-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <Button size="lg" asChild className="text-lg px-8">
               <Link href="/shop">
                 Start Designing <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-lg px-8 h-12">
+            <Button size="lg" variant="outline" asChild className="text-lg px-8">
               <Link href="/shop">View Gallery</Link>
             </Button>
           </div>
+
+          {/* 3D Hero Card */}
+          <Hero3DCard />
         </div>
 
         {/* Background decoration */}

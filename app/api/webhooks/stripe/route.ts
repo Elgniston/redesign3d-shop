@@ -27,19 +27,33 @@ export async function POST(req: Request) {
         const paymentIntentId = session.payment_intent as string;
 
         if (orderId) {
-            // Update order status to "New" (Paid)
-            const { error } = await supabase
+            // Update order status
+            const { data: order, error } = await supabaseAdmin // Changed to supabaseAdmin and destructuring data and error
                 .from("orders")
                 .update({
                     status: "New",
                     stripe_payment_intent_id: paymentIntentId,
                     shipping_address: JSON.stringify((session as any).shipping_details), // Store shipping details
                 })
-                .eq("id", orderId);
+                .eq("id", orderId)
+                .select("*, card_designs(name)") // Added select
+                .single(); // Added single
 
             if (error) {
                 console.error("Error updating order:", error);
                 return new NextResponse("Database Error", { status: 500 });
+            }
+
+            // Send Confirmation Email
+            if (order && session.customer_details?.email) {
+                const { sendOrderConfirmationEmail } = await import("@/lib/email");
+                await sendOrderConfirmationEmail(
+                    session.customer_details.email,
+                    order.id,
+                    session.customer_details.name || "Customer",
+                    order.card_designs?.name || "Custom Cards",
+                    order.price
+                );
             }
         }
     }
