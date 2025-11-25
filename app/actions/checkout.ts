@@ -46,7 +46,7 @@ export async function checkoutAction(designId: string, customization: Customizat
 
         if (orderError || !order) {
             console.error("Order creation failed:", orderError);
-            throw new Error(`Failed to create order: ${orderError.message}`);
+            throw new Error(`Failed to create order: ${orderError?.message || "Unknown error"}`);
         }
 
         // 3. Create Stripe Checkout Session
