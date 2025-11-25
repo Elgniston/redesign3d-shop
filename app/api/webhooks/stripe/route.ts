@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { supabase } from "@/lib/supabase";
 import Stripe from "stripe";
 
@@ -28,7 +29,9 @@ export async function POST(req: Request) {
 
         if (orderId) {
             // Update order status
-            const { data: order, error } = await supabaseAdmin // Changed to supabaseAdmin and destructuring data and error
+            const db = supabaseAdmin || supabase;
+
+            const { data: order, error } = await db
                 .from("orders")
                 .update({
                     status: "New",
@@ -36,8 +39,8 @@ export async function POST(req: Request) {
                     shipping_address: JSON.stringify((session as any).shipping_details), // Store shipping details
                 })
                 .eq("id", orderId)
-                .select("*, card_designs(name)") // Added select
-                .single(); // Added single
+                .select("*, card_designs(name)")
+                .single();
 
             if (error) {
                 console.error("Error updating order:", error);
